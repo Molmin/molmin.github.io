@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title id="title">Gitalk Test Page</title>
+        <link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
+        <link rel="stylesheet" href="file/css/mdui.min.css"/>
+        <link rel="stylesheet" href="file/css/milmon.css"/>
+        <script src="file/script/milmon.js"></script>
+        <script src="file/script/problem.js"></script>
+        <script src="file/script/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        <script>
+            window.onload=function(){
+                initgitalk('ceef39d0151836022a99f740be6bd9b0');
+            }
+        </script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
+        <div id="main-container">
+            <!-- ---------标题栏--------------- -->
+            <div class="mc-appbar mdui-appbar-fixed mdui-appbar mdui-color-theme mdui-hoverable">
+                <div class="toolbar mdui-toolbar">
+                    <span class="mdui-typo-title" style="color: #fff;">Gitalk Test Page</span>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <a href="/settings" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons" style="color: #fff;">settings</i>
+                    </a>
+                    <a href="" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons" style="color: #fff;">refresh</i>
+                    </a>
+                </div>
+            </div>
+            
+            <div id="main-page">
+                <br><br><br>
+                <br><br><br>
+                <div class="mdui-container mdui-shadow-5" style="background: white;">
+                    <div style="padding: 8px;">
+                        <div id="gitalk-container"></div>
+                        </div>
+                        </div>
+            </div>
+
+            <!-- -----------联系方式-------------- -->
+
+            <footer style="background:#444;" id="page-footer">
+                <div class="mdui-container mdui-p-t-3 mdui-text-center">
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'腾讯 QQ'}" href="tencent://AddContact/?subcmd=all&uin=115549630">
+                        <img src="/file/image/qq.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+                    </a>
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'洛谷'}" href="https://www.luogu.com.cn/user/234641">
+                        <img src="/file/image/luogu.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+                    </a>
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'CodeForces'}" href="https://codeforces.com/profile/liujiameng">
+                        <img src="/file/image/codeforces.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+                    </a>
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'Atcoder'}" href="https://atcoder.jp/users/liujiameng">
+                        <img src="/file/image/atcoder.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+                    </a>
+                    <p class="mdui-typo" style="color: white; font-size: 13px;">Powered by <a href="//mdui.org">MDUI</a> & <a href="//github.com/Molmin/Milmon-Page">Milmon Page</a> | <a href="/about">about</a></p>
+                </div>
+            </footer>
+        </div>
+        <script src="file/script/particlelines.js"></script>
+    </body>
+</html>

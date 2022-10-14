@@ -1,0 +1,4 @@
+Yes or No;2 s;250 MB;6
+数学;概率与期望;组合数学;排列组合;组合计数
+AtCoder;AGC
+ATagc019f;LGAT2705

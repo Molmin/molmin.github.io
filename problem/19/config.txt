@@ -1,0 +1,4 @@
+Ski Lift;1 s;250 MB;4
+动态规划;数学
+USACO;2006
+LGP4909

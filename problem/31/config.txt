@@ -1,0 +1,5 @@
+树的路径覆盖;1 s;256 MB;4
+动态规划;树形动态规划
+BZOJ
+BZ1907
+https://molmin.github.io/problem/31/data.zip||data.zip

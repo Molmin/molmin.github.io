@@ -1,0 +1,4 @@
+Xor-Paths;3 s;250 MB;5
+搜索;双向搜索;暴力;位运算
+CodeForces
+LGCF1006E;CF1006E

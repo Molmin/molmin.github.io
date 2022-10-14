@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title id="title">About</title>
+        <link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
+        <link rel="stylesheet" href="https://molmin.github.io/file/css/mdui.min.css"/>
+        <link rel="stylesheet" href="https://molmin.github.io/file/css/milmon.css"/>
+        <script src="https://molmin.github.io/file/script/milmon.js"></script>
+        <script src="https://molmin.github.io/file/script/mdui.min.js"></script>
+        <script>
+			window.onload=function(){
+				loadfile("https://molmin.github.io/about.md",function(text){
+					$("main").innerHTML=markdown(text);
+					$("content").innerHTML=markdown_content;
+					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+				});
+			}
+        </script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
+        <div id="main-container">
+            <div id="main-page">
+                <br><br>
+                <div class="mdui-container">
+                    <div class="mdui-row">
+                        <div class="mdui-col-xs-8">
+                            <div class="mdui-container-fluid mdui-shadow-5" style="background: white;">
+                                <div style="padding: 7px;">
+                                    <p style="font-size: 24px;">关于本站</p>
+                                    <p style="font-size: 12px; color: #666;">2022/10/01 14:00:00</p>
+                                    <div class="mdui-divider mdui-m-y-0"></div>
+                                    <br>
+                                    <div id="main" class="mdui-typo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+            <br>
+
+            <!-- -----------联系方式-------------- -->
+
+            <footer style="background:#444;" id="page-footer">
+                <div class="mdui-container mdui-p-t-3 mdui-text-center">
+                	<p class="mdui-typo" style="color: white; font-size: 13px;">Powered by <a href="//mdui.org">MDUI</a> & <a href="//github.com/Molmin/Milmon-Page">Milmon Page</a> | <a href="/about">about</a></p>
+				</div>
+            </footer>
+        </div>
+    </body>
+</html>

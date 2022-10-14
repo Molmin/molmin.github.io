@@ -1,0 +1,5 @@
+红黑树（rbt）;1 s;256 MB;4
+动态规划;树形动态规划
+本地题/模拟赛题/原创题
+
+https://molmin.github.io/problem/30/data.zip||data.zip

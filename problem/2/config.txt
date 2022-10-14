@@ -1,0 +1,4 @@
+Two Paths;2 s;62.5 MB;5
+图论;欧拉路
+CodeForces
+CF36E;LGCF36E

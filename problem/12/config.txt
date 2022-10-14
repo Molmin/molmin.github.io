@@ -1,0 +1,5 @@
+信号强度（wifi）;2 s;256 MB;4
+基础算法;二分;数据结构;并查集;图论
+本地题/模拟赛题/原创题
+
+https://molmin.github.io/problem/12/sample.zip||sample.zip

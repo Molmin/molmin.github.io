@@ -1,0 +1,5 @@
+Identify the Operations;2 s;250 MB;4
+数学
+CodeForces
+CF1442B;CF1443F;LGCF1442B
+https://molmin.github.io/problem/40/data.zip||data.zip

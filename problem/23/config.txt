@@ -1,0 +1,5 @@
+软件安装;1 s;125 MB;5
+动态规划;树形动态规划;图论;Tarjan;强连通分量
+省选;2010;河南
+LGP2515;BZ2427
+https://molmin.github.io/problem/23/data.zip||data.zip

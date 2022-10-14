@@ -1,0 +1,5 @@
+消防局的设立;1 s;125 MB;5
+动态规划;树形动态规划;最小支配集
+省选;湖南;2003
+LGP2279;BZ1217
+https://molmin.github.io/problem/38/data.zip||data.zip

@@ -1,0 +1,4 @@
+Kuroni and the Celebration;1 s;250 MB;4
+数学;构造;图论
+CodeForces
+CF1305D;LGCF1305D

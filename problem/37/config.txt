@@ -1,0 +1,5 @@
+骑士;1 s;125 MB;5
+动态规划;树形动态规划;最大独立集;图论;基环树
+省选;浙江;2008
+LGP2607;BZ1040
+https://molmin.github.io/problem/37/data.zip||data.zip

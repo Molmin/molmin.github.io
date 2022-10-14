@@ -1,0 +1,5 @@
+电阻（r）;1 s;256 MB;3
+基础算法;递归;数学
+本地题/模拟赛题/原创题
+
+https://molmin.github.io/problem/41/data.zip||data.zip

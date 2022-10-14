@@ -1,0 +1,4 @@
+Ghd;4 s;250 MB;5
+数学;最大公约数;随机化
+CodeForces
+CF364D;LGCF364D

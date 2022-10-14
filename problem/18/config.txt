@@ -1,0 +1,5 @@
+士兵的放置;1 s;256 MB;5
+动态规划;计数动态规划;树形动态规划;最小支配集
+BZOJ
+BZ2314
+https://molmin.github.io/problem/18/data.zip||data.zip

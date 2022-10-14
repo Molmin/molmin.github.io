@@ -1,0 +1,4 @@
+Ant colony;1 s;250 MB;5
+数据结构;线段树;数学;最大公约数
+CodeForces
+CF474F;LGCF474F

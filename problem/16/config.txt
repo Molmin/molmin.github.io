@@ -1,0 +1,4 @@
+Kay and Snowflake;3 s;250 MB;4
+动态规划;树形动态规划;图论;树的重心
+CodeForces
+CF685B;CF686D;LGCF685B

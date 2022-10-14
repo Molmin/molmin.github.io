@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title id="title">Settings - Milmon</title>
+        <link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
+        <link rel="stylesheet" href="file/css/mdui.min.css"/>
+        <link rel="stylesheet" href="file/css/milmon.css"/>
+        <script src="file/script/milmon.js"></script>
+        <script src="file/script/mdui.min.js"></script>
+        <script>
+			var sdata=[];
+			function selector_work(sid,id){
+				$('selector-'+String(sid)+'-'+sdata[sid]).innerHTML='check_box_outline_blank';
+				if(sid==0)setvalue("mmgi-pdir-cf",String(id));
+				if(sid==1)setvalue("mmgi-tp-dir",String(id));
+				sdata[sid]=id;
+				$('selector-'+String(sid)+'-'+String(id)).innerHTML='check_box';
+			}
+
+            function updparticlelinespointcount(){
+                var n=$('particlelines-pointcount').value;
+                setvalue("mmgi-particlelines-pointcount",String(n));
+                $('particlelines-pointcount-number').innerHTML=String(n);
+            }
+
+            function refreshpassword(){
+                if(getvalue("mmgi-login-password")!=null)
+                    $("password-input").value=getvalue("mmgi-login-password"),
+                    $("password-cookie").value=hashpassword(getvalue("mmgi-login-password"));
+                else
+                    $("password-input").value="",
+                    $("password-cookie").value="";
+                mdui.updateTextFields();
+            }
+            function changepassword(){
+                setvalue("mmgi-login-password",$("password-input").value);
+                if($("password-input").value=="")
+                    window.localStorage.removeItem("mmgi-login-password");
+                refreshpassword();
+            }
+			window.onload=function(){
+                if(window.location.href.split("#")[1]=="login"){
+                    $("main-page").innerHTML=
+                         '<br><br><br><br><br><br>'
+                        +'<div class="mdui-container mdui-shadow-5" style="background:#ffffffbb; padding:20px;" id="checkprime-div">'
+                        +'    <div class="mdui-row">'
+                        +'        <div class="mdui-col-xs-6">'
+                        +'            <h2>登录</h2>'
+                        +'        </div>'
+                        +'    </div>'
+                        +'    <p><strong>密码</strong></p>'
+                        +'    <div class="mdui-textfield mdui-textfield-floating-label">'
+                        +'        <label class="mdui-textfield-label">Password</label>'
+                        +'        <input class="mdui-textfield-input" type="password" id="password-input" onchange="changepassword();"/>'
+                        +'    </div>'
+                        +'    <p><strong>Cookie</strong></p>'
+                        +'    <div class="mdui-textfield mdui-textfield-floating-label">'
+                        +'        <label class="mdui-textfield-label">Cookie</label>'
+                        +'        <input class="mdui-textfield-input" disabled id="password-cookie"/>'
+                        +'    </div>'
+                        +'</div>'
+                        +'<br><br>';
+                    refreshpassword();
+                }
+                else{
+                    if(getvalue("mmgi-pdir-cf")==null)setvalue("mmgi-pdir-cf",'0');
+                    sdata[0]=Number(getvalue("mmgi-pdir-cf"));
+                    selector_work(0,sdata[0]);
+                    if(getvalue("mmgi-tp-dir")==null)setvalue("mmgi-tp-dir",'0');
+                    sdata[1]=Number(getvalue("mmgi-tp-dir"));
+                    selector_work(1,sdata[1]);
+                    if(getvalue("mmgi-particlelines-pointcount")==null)setvalue("mmgi-particlelines-pointcount",'60');
+                    $('particlelines-pointcount').value=Number(getvalue("mmgi-particlelines-pointcount"));
+                    mdui.updateSliders();
+                    $('particlelines-pointcount-number').innerHTML=getvalue("mmgi-particlelines-pointcount");
+                }
+			}
+        </script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
+        <div id="main-container">
+            <!-- ---------标题栏--------------- -->
+            <div class="mc-appbar mdui-appbar-fixed mdui-appbar mdui-color-theme mdui-hoverable">
+                <div class="toolbar mdui-toolbar">
+                    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target:'#main-drawer',overlay:true,swipe:true}">
+                        <i class="mdui-icon material-icons">menu</i>
+                    </span>
+                    <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons" style="color: #fff;">home</i>
+                    </a>
+                    <span class="mdui-typo-title" style="color: #fff;">Settings</span>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <a href="/settings" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons" style="color: #fff;">settings</i>
+                    </a>
+                    <a href="" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons" style="color: #fff;">refresh</i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ---------左侧菜单--------------- -->
+            <div class="mdui-drawer mdui-drawer-close" id="main-drawer" style="background:rgb(52,152,219);color:white">
+                <ul class="mdui-list">
+                    <a class="mdui-list-item mdui-ripple" href="/">
+                        <i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">home</i>
+                        <div class="mdui-list-item-content">首页</div>
+                    </a>
+                    <div class="mdui-divider mdui-m-y-0"></div>
+                    <a class="mdui-list-item mdui-ripple" href="/blog">
+                        <i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">library_books</i>
+                        <div class="mdui-list-item-content">博文列表</div>
+                    </a>
+                    <a class="mdui-list-item mdui-ripple" href="/problems">
+                        <i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">work</i>
+                        <div class="mdui-list-item-content">题目中心</div>
+                    </a>
+                    <a class="mdui-list-item mdui-ripple" href="/tools">
+                        <i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">apps</i>
+                        <div class="mdui-list-item-content">工具中心</div>
+                    </a>
+                </ul>
+            </div>
+
+            <div id="main-page">
+                <br><br><br><br><br><br>
+                <div class="mdui-container mdui-shadow-5" style="background: #ffffffbb;">
+                    <div style="padding: 8px;">
+
+						<!--------------------------------------------->
+                        <h2>题目跳转选项</h2>
+                        <p>CodeForces 题库跳转选项</p>
+                        <div class="mdui-row">
+                            <p style="float: left; width: 40px; text-align: center;">
+                                <i class="mdui-icon material-icons" id="selector-0-0" style="color: purple; cursor: pointer;" onclick="selector_work(0,0);">check_box_outline_blank</i>
+                            </p>
+                            <div class="mdui-typo">
+                                <p style="line-height: 55px;">
+                                    <span style="cursor: pointer;" onclick="selector_work(0,0);">&nbsp;&nbsp;题库内链接&nbsp;&nbsp;</span>
+                                    <a href="https://codeforces.com/problemset/problem/1/A">https://codeforces.com/problemset/problem/1/A</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mdui-row">
+                            <p style="float: left; width: 40px; text-align: center;">
+                                <i class="mdui-icon material-icons" id="selector-0-1" style="color: purple; cursor: pointer;" onclick="selector_work(0,1);">check_box_outline_blank</i>
+                            </p>
+                            <div class="mdui-typo">
+                                <p style="line-height: 55px;">
+                                    <span style="cursor: pointer;" onclick="selector_work(0,1);">&nbsp;&nbsp;比赛内链接&nbsp;&nbsp;</span>
+                                    <a href="https://codeforces.com/contest/1/problem/A">https://codeforces.com/contest/1/problem/A</a>
+                                </p>
+                            </div>
+                        </div>
+						<div class="mdui-divider mdui-m-y-0"></div>
+						<!--------------------------------------------->
+                        <h2>题单题目跳转选项</h2>
+                        <p>请选择题单内题目的跳转方式：</p>
+                        <div class="mdui-row">
+                            <p style="float: left; width: 40px; text-align: center;">
+                                <i class="mdui-icon material-icons" id="selector-1-0" style="color: purple; cursor: pointer;" onclick="selector_work(1,0);">check_box_outline_blank</i>
+                            </p>
+                            <div class="mdui-typo">
+                                <p style="line-height: 55px; cursor: pointer;" onclick="selector_work(1,0);">&nbsp;&nbsp;优先跳转本题库内链接</p>
+                            </div>
+                        </div>
+                        <div class="mdui-row">
+                            <p style="float: left; width: 40px; text-align: center;">
+                                <i class="mdui-icon material-icons" id="selector-1-1" style="color: purple; cursor: pointer;" onclick="selector_work(1,1);">check_box_outline_blank</i>
+                            </p>
+                            <div class="mdui-typo">
+                                <p style="line-height: 55px; cursor: pointer;" onclick="selector_work(1,1);">&nbsp;&nbsp;跳转外部链接</p>
+                            </div>
+                        </div>
+						<div class="mdui-divider mdui-m-y-0"></div>
+						<!--------------------------------------------->
+                        <h2>动态粒子线条设置</h2>
+                        <p>动态粒子数量：<span id="particlelines-pointcount-number"></span></p>
+                        <div class="mdui-row">
+                            <div class="mdui-col-xs-4" style="padding: 8px;">
+                                <label class="mdui-slider mdui-slider-discrete">
+                                    <input id="particlelines-pointcount" type="range" onchange="updparticlelinespointcount();" step="10" min="50" max="1000"/>
+                                </label>
+                            </div>
+                        </div>
+						<!--------------------------------------------->
+                    </div>
+                </div>
+                <br><br>
+            </div>
+
+            <!-- -----------联系方式-------------- -->
+
+            <footer style="background:#444;" id="page-footer">
+                <div class="mdui-container mdui-p-t-3 mdui-text-center">
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'腾讯 QQ'}" href="tencent://AddContact/?subcmd=all&uin=115549630">
+                        <img src="/file/image/qq.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+                    </a>
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'洛谷'}" href="https://www.luogu.com.cn/user/234641">
+                        <img src="/file/image/luogu.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+                    </a>
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'CodeForces'}" href="https://codeforces.com/profile/liujiameng">
+                        <img src="/file/image/codeforces.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+                    </a>
+                    <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'Atcoder'}" href="https://atcoder.jp/users/liujiameng">
+                        <img src="/file/image/atcoder.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+                    </a>
+					<p class="mdui-typo" style="color: white; font-size: 13px;">Powered by <a href="//mdui.org">MDUI</a> & <a href="//github.com/Molmin/Milmon-Page">Milmon Page</a> | <a href="/about">about</a></p>
+                </div>
+            </footer>
+        </div>
+		<script src="file/script/particlelines.js"></script>
+    </body>
+</html>
