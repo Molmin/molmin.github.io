@@ -50,17 +50,40 @@ function hashpassword(s){
 	var p=0;
 	for(var i=0;i<s.length;i++){
 		var tmp=s.charCodeAt(i)+83;
+
 		tmp=tmp*tmp*tmp;
 		while(tmp>0){
 			a[p]+=tmp%10;
 			p++;
 			if(p==32)p=0;
+
 			tmp=(tmp-tmp%10)/10;
 		}
 	}
 	var str="";
 	for(var i=0;i<32;i++)
 		str=str+charset[a[i]%16];
+	s=str+s+str;
+	a=new Array();
+	for(var i=0;i<32;i++)
+		a[i]=s.charCodeAt(i%s.length)%16;
+	var p=0;
+	for(var i=0;i<s.length;i++){
+		var tmp=s.charCodeAt(i)+83;
+
+		tmp=tmp*tmp*tmp;
+		while(tmp>0){
+			a[p]+=tmp%10;
+			p++;
+			if(p==32)p=0;
+
+			tmp=(tmp-tmp%10)/10;
+		}
+	}
+	var str="";
+	for(var i=0;i<32;i++)
+		str=str+charset[a[i]%16];
+	
 	return str;
 }
 function loadfile(filename,func){
