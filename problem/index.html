@@ -12,6 +12,10 @@
 		<script src="../file/script/mdui.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 		<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css">
+		<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+		<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 		<script>
 			function gettype(id){
 				var t=""; t=t+id[0],t=t+id[1];
@@ -86,14 +90,7 @@
 						MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 					});
 					loadfile(getParam("id")+"/code.cpp",function(text){
-						var tmp="";
-						for(var i=0;i<text.length;i++){
-							if(text.charAt(i)=='\t')tmp=tmp+"    ";
-							else tmp=tmp+"&#"+text.charCodeAt(i)+";";
-						}
-						$("answer-code").innerHTML="<pre class='code-pre'>"+tmp+"</pre>";
-						$("code-copycodebutton").onclick=function(){copy(text);}
-						MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+						$("code").innerHTML=markdown("```cpp\n"+text+"\n```");
 					});
 				});
 			}
@@ -104,8 +101,6 @@
 				line-height: 24px;
 			}
 		</style>
-		<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
-        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
 		<div id="main-container">
@@ -172,19 +167,10 @@
 								<a href="#code" class="mdui-ripple">程序</a>
 								<a href="#comment" class="mdui-ripple">评论区</a>
 							</div>
-							<div id="statement" class="mdui-p-a-2">
-							</div>
-							<div id="links" class="mdui-p-a-2">
-							</div>
-							<div id="solution" class="mdui-p-a-2">
-							</div>
-							<div id="code" class="mdui-p-a-2">
-								<div class="code-divoutside">
-									<button id="code-copycodebutton" class="code-copybutton code-copybutton-cursor">复制</button>
-									<div id="answer-code" class="code-divinside mdui-dialog-content">
-									</div>
-								</div>
-							</div>
+							<div id="statement" class="mdui-p-a-2"></div>
+							<div id="links" class="mdui-p-a-2"></div>
+							<div id="solution" class="mdui-p-a-2"></div>
+							<div id="code" class="mdui-p-a-2"></div>
 							<div id="comment" class="mdui-p-a-2">
 								<div id="gitalk-container"></div>
 							</div>

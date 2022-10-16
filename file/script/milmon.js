@@ -50,13 +50,11 @@ function hashpassword(s){
 	var p=0;
 	for(var i=0;i<s.length;i++){
 		var tmp=s.charCodeAt(i)+83;
-
 		tmp=tmp*tmp*tmp;
 		while(tmp>0){
 			a[p]+=tmp%10;
 			p++;
 			if(p==32)p=0;
-
 			tmp=(tmp-tmp%10)/10;
 		}
 	}
@@ -70,20 +68,17 @@ function hashpassword(s){
 	var p=0;
 	for(var i=0;i<s.length;i++){
 		var tmp=s.charCodeAt(i)+83;
-
 		tmp=tmp*tmp*tmp;
 		while(tmp>0){
 			a[p]+=tmp%10;
 			p++;
 			if(p==32)p=0;
-
 			tmp=(tmp-tmp%10)/10;
 		}
 	}
 	var str="";
 	for(var i=0;i<32;i++)
 		str=str+charset[a[i]%16];
-	
 	return str;
 }
 function loadfile(filename,func){
@@ -127,16 +122,19 @@ function markdown(file){
 				continue;
 			}
 			else if(file.charAt(i)=='`'){
-				while(file.charAt(i)!='\n')i++;
-				var tmp="",tmp2="";
+				while(file.charAt(i)!='`')i++;
+				var lang="";
+				while(file.charAt(i)!='\n')lang=lang+file.charAt(i),i++;
+				if(lang=="")lang="text";
+				var tmp="";
 				while(file.substring(i+1,i+5)!='\n```'){
 					i++;
 					if(file.charAt(i)=='\t')tmp=tmp+"    ";
-					else tmp=tmp+"&#"+file.charCodeAt(i)+";";
+					else tmp=tmp+file.charAt(i);
 				}
 				i=i+4;
 				var id=newrandomid();
-				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy($(\''+id+'\').innerText);">复制</button><div class="code-divinside mdui-dialog-content"><pre class="code-pre" id="'+id+'">'+tmp+'</pre></div></div>';
+				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy($(\''+id+'\').innerText);">复制</button><div class="code-divinside mdui-dialog-content"><pre class="code-pre" id="'+id+'">'+hljs.highlight(tmp,{language:lang}).value+'</pre></div></div>';
 				continue;
 			}
 			else{
