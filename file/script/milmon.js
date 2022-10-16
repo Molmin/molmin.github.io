@@ -122,7 +122,7 @@ function markdown(file){
 				continue;
 			}
 			else if(file.charAt(i)=='`'){
-				while(file.charAt(i)!='`')i++;
+				while(file.charAt(i)=='`')i++;
 				var lang="";
 				while(file.charAt(i)!='\n')lang=lang+file.charAt(i),i++;
 				if(lang=="")lang="text";
