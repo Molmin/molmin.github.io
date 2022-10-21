@@ -1,0 +1,5 @@
+迷失游乐园;1 s;500 MB;7
+动态规划;概率动态规划;树形动态规划;数学;概率与期望;图论;基环树
+NOI;2012
+LGP2081;BZ2878
+https://molmin.github.io/problem/47/data.zip||data.zip
