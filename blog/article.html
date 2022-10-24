@@ -24,7 +24,7 @@
 					while(i<datas.length-1&&datas[i].split("|")[0]!=getParam("id"))i++;
 					$("blog-title").innerHTML=datas[i].split("|")[1];
 					$("title").innerHTML=datas[i].split("|")[1]+" - Milmon Blog";
-					$("blog-time").innerHTML=datas[i].split("|")[2];
+					initgitalk(hashpassword('blogcomment-'+getParam("id")));
 				});
 			}
 		</script>
@@ -97,6 +97,7 @@
 								<p id="blog-time" style="font-size: 12px; color: #666;"></p>
 								<div class="mdui-divider mdui-m-y-0"></div>
 								<div id="main"></div>
+								<div id="gitalk-container"></div>
 							</div>
 						</div>
 					</div>
