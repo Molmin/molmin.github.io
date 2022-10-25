@@ -51,9 +51,6 @@ bool getTreeType(bool endcanwin){
             for(int j=head[i];j;j=edge[j].nxt)
                 if(!win[edge[j].to])win[i]=true;
         }
-    // for(int i=1;i<=n;i++)
-    //     printf("%d ",(int)win[i]);
-    // printf("\n");
     return !win[1];
 }
 
@@ -68,12 +65,10 @@ int main(){
     while(m--){
         readTree();
         total[getTreeType(true)][getTreeType(false)]++;
-    // printf("%d %d %d %d\n",total[0][0],total[0][1],total[1][0],total[1][1]);
     }
     long long sum=0;
     for(int i=0;i<=total[0][1];i+=2)
         sum+=C(total[0][1],i),sum%=mod;
-    // printf("%d\n",total[0][1]);
     answer-=power(2,total[1][0]+total[0][0])*sum%mod;
     printf("%lld\n",(answer+mod)%mod);
     return 0;
