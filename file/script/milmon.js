@@ -230,3 +230,11 @@ function setvalue(key,val){
 		return undefined;
 	}
 }
+function deletevalue(key){
+	if(window.localStorage)
+		window.localStorage.removeItem(key);
+	else{
+		message("浏览器不支持 Localstorage");
+		return undefined;
+	}
+}

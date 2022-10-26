@@ -58,6 +58,7 @@
 				loadfile(getParam("id")+"/config.txt",function(text){
 					if(text.split("\n").length>=6&&getcookie(text.split("\n")[5]).length==32
 						&&hashpassword(getvalue("mmgi-login-password"))!=getcookie(text.split("\n")[5]))
+						setvalue('mmgi-loginreturnurl',window.location.href),
 						window.location.href="/settings#login";
 					$("title").innerHTML=getParam("id")+". "+
 						text.split("\n")[0].split(";")[0]+" - Milmon Problem";

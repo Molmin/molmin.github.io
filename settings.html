@@ -40,8 +40,13 @@
                     window.localStorage.removeItem("mmgi-login-password");
                 refreshpassword();
             }
+            var returnurl="";
 			window.onload=function(){
                 if(window.location.href.split("#")[1]=="login"){
+                    if(getvalue('mmgi-loginreturnurl')!=null){
+                        returnurl=getvalue('mmgi-loginreturnurl');
+                        deletevalue('mmgi-loginreturnurl');
+                    }
                     $("main-page").innerHTML=
                          '<br><br><br><br><br><br>'
                         +'<div class="mdui-container mdui-shadow-5" style="background:#ffffffbb; padding:20px;" id="checkprime-div">'
@@ -60,6 +65,8 @@
                         +'        <label class="mdui-textfield-label">Cookie</label>'
                         +'        <input class="mdui-textfield-input" disabled id="password-cookie"/>'
                         +'    </div>'
+                        +'    <br>'
+                        +'    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" onclick="window.location.href=\''+returnurl+'\';">确认</button>'
                         +'</div>'
                         +'<br><br>';
                     refreshpassword();
