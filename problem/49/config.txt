@@ -1,0 +1,6 @@
+斩荆辟路（card）;1 s;512 MB;5
+动态规划;概率动态规划;数学;快速幂;概率与期望;矩阵;矩阵乘法
+本地题/模拟赛题/原创题
+
+https://molmin.github.io/problem/49/sample.zip||sample.zip
+6b4506235c54bf64628017bacb266fc0
