@@ -240,14 +240,17 @@ function deletevalue(key){
 }
 
 var footerisloaded=false;
-setInterval(footeronload,500);
+setTimeout(footeronload,100);
 function footeronload(){
-	if($('page-footer')==null)return;
+	if($('page-footer')==null){setTimeout(footeronload,500);return;}
 	if(footerisloaded)return;
 	if(window.location.pathname.split('/about')[0]=="")return;
 	footerisloaded=true;
 	$('page-footer').innerHTML=`
 		<div class="mdui-container mdui-p-t-3">
+			<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'GitHub'}" href="https://github.com/Molmin/">
+				<img src="/file/image/github.png" class="mdui-img-circle" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+			</a>
 			<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'腾讯 QQ'}" href="tencent://AddContact/?subcmd=all&uin=115549630">
 				<img src="/file/image/qq.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
 			</a>
