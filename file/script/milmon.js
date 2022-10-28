@@ -240,9 +240,9 @@ function deletevalue(key){
 }
 
 var footerisloaded=false;
-setTimeout(footeronload,100);
+setTimeout(footeronload,300);
 function footeronload(){
-	if($('page-footer')==null){setTimeout(footeronload,500);return;}
+	if($('page-footer')==null){setTimeout(footeronload,300);return;}
 	if(footerisloaded)return;
 	if(window.location.pathname.split('/about')[0]=="")return;
 	footerisloaded=true;
@@ -265,7 +265,7 @@ function footeronload(){
 			</a>
 			<div style="float: right;">
 				<p class="mdui-typo" style="color: white; font-size: 13px;">Powered by <a href="//mdui.org">MDUI</a> & <a href="//github.com/Molmin/Milmon-Page">Milmon Page</a> | <a href="/about">about</a></p>
-				<p class="mdui-typo" style="color: white; font-size: 13px;"><span id="busuanzi_container_site_pv">共 <span id="busuanzi_value_site_pv"></span> 访问</span> | <span id="busuanzi_container_site_uv">共 <span id="busuanzi_value_site_uv"></span> 访客</span></p>
+				<p class="mdui-typo" style="color: white; font-size: 13px;"><span id="busuanzi_container_site_pv">共 <span id="busuanzi_value_site_pv"></span> 访问</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="busuanzi_container_site_uv">共 <span id="busuanzi_value_site_uv"></span> 访客</span></p>
 			</div>
 		</div>
 	`;
