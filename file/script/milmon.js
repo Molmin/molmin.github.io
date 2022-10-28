@@ -238,3 +238,32 @@ function deletevalue(key){
 		return undefined;
 	}
 }
+
+var footerisloaded=false;
+setInterval(footeronload,500);
+function footeronload(){
+	if($('page-footer')==null)return;
+	if(footerisloaded)return;
+	if(window.location.pathname.split('/about')[0]=="")return;
+	footerisloaded=true;
+	$('page-footer').innerHTML=`
+		<div class="mdui-container mdui-p-t-3">
+			<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'腾讯 QQ'}" href="tencent://AddContact/?subcmd=all&uin=115549630">
+				<img src="/file/image/qq.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+			</a>
+			<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'洛谷'}" href="https://www.luogu.com.cn/user/234641">
+				<img src="/file/image/luogu.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+			</a>
+			<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'CodeForces'}" href="https://codeforces.com/profile/liujiameng">
+				<img src="/file/image/codeforces.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+			</a>
+			<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'Atcoder'}" href="https://atcoder.jp/users/liujiameng">
+				<img src="/file/image/atcoder.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+			</a>
+			<div style="float: right;">
+				<p class="mdui-typo" style="color: white; font-size: 13px;">Powered by <a href="//mdui.org">MDUI</a> & <a href="//github.com/Molmin/Milmon-Page">Milmon Page</a> | <a href="/about">about</a></p>
+				<p class="mdui-typo" style="color: white; font-size: 13px;"><span id="busuanzi_container_site_pv">共 <span id="busuanzi_value_site_pv"></span> 访问</span> | <span id="busuanzi_container_site_uv">共 <span id="busuanzi_value_site_uv"></span> 访客</span></p>
+			</div>
+		</div>
+	`;
+}
