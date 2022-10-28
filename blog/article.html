@@ -13,6 +13,7 @@
 		<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
         <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+		<script async src="../file/script/busuanzi.pure.mini.js"></script>
 		<script>
 			window.onload=function(){
 				loadfile("datas/"+getParam("id")+".md",function(text){
@@ -25,8 +26,10 @@
 					var i=0;
 					while(i<datas.length-1&&datas[i].split("|")[0]!=getParam("id"))i++;
 					$("blog-title").innerHTML=datas[i].split("|")[1];
+					$("blog-time").innerHTML=datas[i].split("|")[2];
 					$("title").innerHTML=datas[i].split("|")[1]+" - Milmon Blog";
-					initgitalk(hashpassword('blogcomment-'+getParam("id")));
+					if(datas[i].split("|")[0]==getParam("id"))
+						initgitalk(hashpassword('blogcomment-'+getParam("id")));
 				});
 			}
 		</script>
@@ -96,7 +99,12 @@
 						<div class="mdui-container-fluid mdui-shadow-5" style="background: white;">
 							<div style="padding: 7px;">
 								<p id="blog-title" style="font-size: 24px;"></p>
-								<p id="blog-time" style="font-size: 12px; color: #666;"></p>
+								<p style="font-size: 12px; color: #666;">
+									<span id="blog-time"></span>
+									<span id="busuanzi_container_page_pv">
+										本站访客数 <span id="busuanzi_value_site_pv"></span> 人次
+									</span>
+								</p>
 								<div class="mdui-divider mdui-m-y-0"></div>
 								<div id="main"></div>
 								<div id="gitalk-container"></div>

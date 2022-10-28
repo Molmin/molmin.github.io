@@ -184,7 +184,7 @@ function markdown(file){
 			else if(file.charAt(i)=='!'&&(i==0||file.charAt(i-1)=='\n')&&file.charAt(i+1)=='['){
 				while(file.charAt(i)!=']')i++;
 				while(file.charAt(i)!='(')i++;
-				result=result+"<img src='";
+				result=result+"<img style='max-width: 100%;' src='";
 				while(file.charAt(i+1)!=')')
 					i++,result=result+file.charAt(i);
 				result=result+"'>";

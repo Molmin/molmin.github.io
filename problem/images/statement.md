@@ -1,6 +1,8 @@
 ![](https://molmin.github.io/problem/images/lzy.jpg)
 
-![](https://molmin.github.io/problem/images/lzy2.jpg)
+![](https://molmin.github.io/problem/images/lzy3.png)
+
+![](https://molmin.github.io/problem/images/zl2.png)
 
 ![](https://molmin.github.io/problem/images/zl.jpeg)
 
