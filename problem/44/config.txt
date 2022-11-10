@@ -3,3 +3,4 @@
 本地题/模拟赛题/原创题
 
 https://molmin.github.io/problem/44/sample.zip||sample.zip
+f0c0ee7734033b91d7d229afd8ce43d5

@@ -3,3 +3,4 @@
 本地题/模拟赛题/原创题;ACM-ICPC;2016
 BZ4612
 https://molmin.github.io/problem/42/data.zip||data.zip|||https://molmin.github.io/problem/42/data2.zip||data（ACM2016WF 测试数据）.zip
+53ddfe645f2499fa1741a9dc6582baf9
