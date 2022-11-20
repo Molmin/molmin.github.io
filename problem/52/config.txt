@@ -1,0 +1,5 @@
+假期计划（holiday）;2 s;512 MB;5
+图论;离散化
+CSP-S;2022
+LGP8819
+https://molmin.github.io/problem/51/sample.zip||sample.zip|||https://molmin.github.io/problem/51/data.zip||data.zip
