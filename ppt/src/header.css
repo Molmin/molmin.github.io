@@ -1,0 +1,62 @@
+.topan-toolbar{
+    z-index: 10;
+    background-color: white;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    box-shadow: 2px -2px 2px rgba(0,0,0,0.1);
+    position: fixed;
+    bottom: 0; right: 0; left: 0;
+
+    transition-duration: 0.3s;
+    transition-property: all;
+}
+.topan-toolbar:hover{
+    box-shadow: 2px -2px 5px rgba(0,0,0,0.2);
+}
+
+.topan-header>.topan-header-home{
+    position: relative;
+    display: inline-block;
+    left: 5px;
+}
+.topan-toolbar>.topan-toolbar-left{
+    position: absolute;
+    display: inline-block;
+    left: 5px;
+}
+.topan-toolbar>.topan-toolbar-middle{
+    text-align: center;
+}
+.topan-toolbar>.topan-toolbar-right{
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+}
+
+.topan-toolbar-lefttext{
+    height: 50px;
+    position: relative;
+    display: inline-block;
+    left: 10px;
+    bottom: 3px;
+    font-size: 18px;
+    line-height: 30px;
+    transition-duration: 0.15s;
+}
+.topan-toolbar-middletext{
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    bottom: 3px;
+}
+.topan-toolbar-righttext{
+    height: 50px;
+    position: relative;
+    display: inline-block;
+    right: 10px;
+    bottom: 3px;
+    font-size: 18px;
+    line-height: 30px;
+    transition-duration: 0.15s;
+}

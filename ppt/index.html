@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Ppt Player by Markdown</title>
+		<link rel="shortcut icon" type="image/x-icon" href="icon.png">
+        <link rel="stylesheet" href="topan.css">
+		<script src="src/markdown.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css">
+		<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+		<script>
+            var config={
+                writer: "Milmon",
+                title: "数论——整除分块与线性筛的延伸",
+                time: {
+                    year: 2022,
+                    month: 11,
+                    day: 11
+                },
+                count: 28,
+                markdown: 
+[`## 目录
+
+<p onclick="gotopage(2);" style="cursor: pointer;"><strong>例 1.</strong>&nbsp;&nbsp;Sum of Remainder
+    <span style="float: right;">第 2 页</span></p>
+
+<p onclick="gotopage(9);" style="cursor: pointer;"><strong>例 2.</strong>&nbsp;&nbsp;Sum of Divisor
+    <span style="float: right;">第 9 页</span></p>
+
+<p onclick="gotopage(13);" style="cursor: pointer;"><strong>知识讲解</strong>&nbsp;&nbsp;莫比乌斯函数与其常用定理
+    <span style="float: right;">第 13 页</span></p>
+
+<p onclick="gotopage(18);" style="cursor: pointer;"><strong>例 3.</strong>&nbsp;&nbsp;Count GCD Prime
+    <span style="float: right;">第 18 页</span></p>`,
+`## <span style="color: blue;">例 1.</span>&nbsp;&nbsp;Sum of Remainder
+
+求 $m$ 作为被除数，对于除数 $1\\sim n$ 的余数的和，即
+
+$$
+\\sum_{i=1}^n m\\bmod i.
+$$
+
+对于 $100\\%$ 的数据，保证 $1\\leq n,\\ m\\leq 10^9$。`,
+`### 解答
+
+因为余数等于被除数减去除数的商倍，故原式等于
+
+$$
+\\sum_{i=1}^n m-\\left\\lfloor\\dfrac mi\\right\\rfloor\\cdot i.
+$$`,
+`将 $m$ 提取出来，就是
+
+$$
+nm-\\sum_{i=1}^n\\left\\lfloor\\dfrac mi\\right\\rfloor\\cdot i.
+$$`,
+`观察 $\\left\\lfloor\\dfrac mi\\right\\rfloor$ 的值，可以发现许多值都是相同的。`,
+`而不同值的个数的数量级为 $\\Theta(\\sqrt{m})$。（为什么？）`,
+`因为：要么 $\\left\\lfloor\\dfrac mi\\right\\rfloor$ 不超过 $\\sqrt{m}$，要么 $i$ 不超过 $\\sqrt{m}$，由于它们的积不超过 $m$ 且都为整数，故总数量级不超过 $\\Theta(\\sqrt{m})$。
+
+综上，问题已经得到解答。`,
+`将 $m$ 提取出来，就是
+
+$$
+nm-\\sum_{i=1}^n\\left\\lfloor\\dfrac mi\\right\\rfloor\\cdot i.
+$$
+
+核心代码如下：（这也就是整除分块的模板）
+
+\`\`\`cpp
+for(int l=1,r;l<=n&&m/l;l=r+1){
+    int val=m/l; r=min(m/val,n);
+    answer-=(l+r)*(r-l+1ll)/2*val;
+}
+\`\`\`
+
+注：上面这段代码在整除分块的题目中十分常用，必须熟记这些内容。`,
+`## <span style="color: blue;">例 2.</span>&nbsp;&nbsp;Sum of Divisor
+
+求给定区间内所有数的约数和之和，即
+
+$$
+\\sum_{i=l}^r\\sum_{d|i}d.
+$$
+
+对于 $100\\%$ 的数据，保证 $1\\leq l < r\\leq 10^9$。`,
+`### 解答
+
+易得要求的是
+
+$$
+\\sum_{i=1}^r\\sum_{d|i}d-\\sum_{i=1}^l\\sum_{d|i}d.
+$$
+
+故只需求前半部分即可。`,
+`考虑枚举 $d$，则所求内容即为
+
+$$
+\\sum_{d=1}^{r}d\\cdot\\left\\lfloor\\dfrac rd\\right\\rfloor.
+$$`,
+`故按照例 1 解法解答即可。`,
+`## <span style="color: blue;">知识讲解</span>&nbsp;&nbsp;莫比乌斯函数与其常用定理
+
+莫比乌斯函数定义如下：对于正整数 $n$，莫比乌斯函数
+
+$$
+\\mu(n)=\\begin{cases}
+0, & n\\text{ has square factor bigger than 1} \\\\
+1, & n=1 \\\\
+(-1)^k, & n\\text{ has no square factor bigger than 1, }n=p_1p_2\\cdots p_k
+\\end{cases}.
+$$`,
+`### 常用定理
+
+若 $n$ 是大于 $1$ 的正整数，则
+
+$$
+\\sum_{i|n}\\mu(i)=0.
+$$`,
+`### 常用定理证明
+
+令 $m$ 表示 $n$ 所有不同素因子之积。则当且仅当 $i|m$ 才会满足 $\\mu(i)\\not=0$。
+
+若 $m$ 有奇数个素因子，则将乘积为 $m$ 的两数配对，则它们的莫比乌斯函数值之和等于 $0$。
+
+若 $m$ 有偶数个素因子，则剔除一个素因子，剩下数就有奇数个素因子，因数莫比乌斯函数值和为 $0$。
+
+而剩下包含这个素因子的因数，也按上述规则配对，那么易得和为 $0$。`,
+`## <span style="color: blue;">知识讲解</span>&nbsp;&nbsp;莫比乌斯函数与其常用定理
+
+莫比乌斯函数定义如下：对于正整数 $n$，莫比乌斯函数
+
+$$
+\\mu(n)=\\begin{cases}
+0, & n\\text{ has square factor bigger than 1} \\\\
+1, & n=1 \\\\
+(-1)^k, & n\\text{ has no square factor bigger than 1, }n=p_1p_2\\cdots p_k
+\\end{cases}.
+$$
+
+### 函数值预处理`,
+`线性筛处理素数，每次根据其除以其素因子之一的商的莫比乌斯函数求其本身莫比乌斯函数即可。
+
+代码如下：
+
+\`\`\`cpp
+int psum,notp[5000001],prime[5000001];
+int mu[5000001];
+void init(int N){
+    mu[1]=notp[1]=1;
+    for(int i=2;i<=N;i++){
+        if(!notp[i])prime[++psum]=i;
+        for(int j=1;j<=psum;j++){
+            if(1ll*prime[j]*i>N)break;
+            notp[prime[j]*i]=true;
+            if(i%prime[j]==0)break;
+        }
+    }
+    psum=0;
+    for(int i=2;i<=N;i++){
+        if(!notp[i])mu[i]=-1,psum++;
+        for(int j=1;j<=psum;j++){
+            if(1ll*prime[j]*i>N)break;
+            mu[prime[j]*i]=i%prime[j]?-mu[i]:0;
+            if(i%prime[j]==0)break;
+        }
+    }
+}
+\`\`\``,
+`## <span style="color: blue;">例 3.</span>&nbsp;&nbsp;Count GCD Prime
+
+求不超过 $n$ 的一个数的与不超过 $m$ 的一个数的最大公约数为素数的数对个数，即
+
+$$
+\\sum_{i=1}^n\\sum_{j=1}^m[\\gcd(i,\\ j)\\text{ is a prime}].
+$$
+
+对于 $100\\%$ 的数据，保证 $1\\leq T\\leq 10^4$，$1\\leq n,\\ m\\leq 10^7$。`,
+`### 解答
+
+不妨设 $n\\leq m$。考虑枚举最大公约数的值，故本题即求
+
+$$
+\\sum_{k=1,\\ k\\text{ is a prime}}^n\\sum_{i=1}^n\\sum_{j=1}^m[\\gcd(i,\\ j)=k].
+$$`,
+`若 $i,\\ j$ 满足条件，则 $i,\\ j$ 必定是 $k$ 的倍数。故考虑枚举它们是 $k$ 的几倍。即求
+
+$$
+\\sum_{k=1,\\ k\\text{ is a prime}}^n\\sum_{i=1}^{\\left\\lfloor\\frac nk\\right\\rfloor}\\sum_{j=1}^{\\left\\lfloor\\frac mk\\right\\rfloor}[\\gcd(i,\\ j)=1].
+$$`,
+`我们知道在 $s\\not=1$ 的前提下，$\\sum\\limits_{t|s}\\mu(i)=0$。`,
+`令 $s=\\gcd(i,\\ j)$，则
+
+$$
+\\sum_{t|\\gcd(i,\\ j)}\\mu(t)=[\\gcd(i,\\ j)=1].
+$$`,
+`代入得我们要求的是
+
+$$
+\\sum_{k=1,\\ k\\text{ is a prime}}^n\\sum_{i=1}^{\\left\\lfloor\\frac nk\\right\\rfloor}\\sum_{j=1}^{\\left\\lfloor\\frac mk\\right\\rfloor}\\sum_{t|\\gcd(i,\\ j)}\\mu(t).
+$$`,
+`考虑枚举 $t$，而 $i,\\ j$ 都是 $k$ 的倍数，不妨用 $i,\\ j$ 除以 $k$ 的商代替原来的值。故要求的是
+
+$$
+\\sum_{k=1,\\ k\\text{ is a prime}}^n\\sum_{t=1}^{\\left\\lfloor\\frac n{k}\\right\\rfloor}\\sum_{i=1}^{\\left\\lfloor\\frac n{kt}\\right\\rfloor}\\sum_{j=1}^{\\left\\lfloor\\frac m{kt}\\right\\rfloor}\\mu(t).
+$$`,
+`显然可以把后面两个 $\\sum$ 化简掉，即
+
+$$
+\\sum_{k=1,\\ k\\text{ is a prime}}^n\\sum_{t=1}^{\\left\\lfloor\\frac n{k}\\right\\rfloor}\\left\\lfloor\\frac n{kt}\\right\\rfloor\\cdot\\left\\lfloor\\frac m{kt}\\right\\rfloor\\cdot\\mu(t).
+$$`,
+`观察发现 $kt$ 不超过 $n$。考虑枚举 $kt$，则要求的是
+
+$$
+\\sum_{i=1}^n\\left\\lfloor\\frac ni\\right\\rfloor\\cdot\\left\\lfloor\\frac mi\\right\\rfloor\\cdot
+\\sum_{k|i,\\ k\\text{ is a prime}}^n\\mu\\left(\\left\\lfloor\\frac ik\\right\\rfloor\\right).
+$$`,
+`考虑后面的一个 $\\sum$ 如何求得。
+
+枚举每个素数 $k$，给它的每个倍数 $i$ 的答案加上 $\\mu\\left(\\left\\lfloor\\dfrac ik\\right\\rfloor\\right)$ 即可。`,
+`最后使用整除分块处理前面的部分即可。`],
+                startpage: [1,2,2,3,3,4,4,8,9,9,10,10,13,13,14,16,16,18,18,19,20,20,20,23,24,25,26,26]
+            }
+
+            function getid(x){
+                return document.getElementById(x);
+            }
+
+            function openallpages(){
+                for(var i=1;i<=config.count;i++)
+                    getid("page-"+String(i)).classList.remove("hide");
+                var allpages=config.markdown[0];
+                for(var i=1;i<config.count;i++)
+                    allpages=allpages+"\n\n"+config.markdown[i];
+                console.log(allpages);
+            }
+            function loadingend(){
+                getid("loading-icon").classList.add('topan-loading-hidden');
+                setTimeout(
+                    function(){
+                        getid("loading-icon").classList.add("hide");
+                        getid("loading-icon").classList.remove("topan-loading-hidden");
+                    },
+                    100
+                );
+            }
+            var fontsize=18,nowpage=1;
+            function initsettings(){
+                getid("writer").innerText=config.writer;
+                getid("title").innerText=config.title;
+                getid("time-year").innerText=String(config.time.year);
+                getid("time-month").innerText=String(config.time.month);
+                getid("time-day").innerText=String(config.time.day);
+                getid("nowpage").innerText=String(nowpage);
+                getid("countpage").innerText=String(config.count);
+                var html="";
+                for(var i=0;i<config.count;i++)
+                    html+=`<div id="page-`+String(i+1)+`">`+markdown(config.markdown[i])+`</div>`;
+                getid("main").innerHTML=html;
+                for(var i=2;i<=config.count;i++){
+                    getid("page-"+String(i)).classList.add("hide");
+                }
+            }
+            function gotopage(pageid){
+                for(var i=config.startpage[nowpage-1];i<=nowpage;i++)
+                    getid("page-"+String(i)).classList.add("hide");
+                nowpage=pageid;
+                for(var i=config.startpage[nowpage-1];i<=nowpage;i++)
+                    getid("page-"+String(i)).classList.remove("hide");
+                getid("nowpage").innerText=String(nowpage);
+            }
+            window.onload=function(){
+                initsettings();
+                getid("button1").onclick=function(){
+                    if(nowpage!=1)gotopage(1);
+                };
+                getid("button2").onclick=function(){
+                    if(nowpage>1)gotopage(nowpage-1);
+                };
+                getid("button3").onclick=function(){
+                    if(fontsize<3)return;
+                    fontsize--;
+                    document.body.setAttribute("style","--markdown-font-size: "+String(fontsize)+"px;");
+                };
+                getid("button4").onclick=function(){
+                    fontsize++;
+                    document.body.setAttribute("style","--markdown-font-size: "+String(fontsize)+"px;");
+                };
+                getid("button5").onclick=function(){
+                    if(nowpage<config.count)gotopage(nowpage+1);
+                };
+                getid("button6").onclick=function(){
+                    if(nowpage!=config.count)gotopage(config.count);
+                };
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                setTimeout(loadingend,1000);
+            }
+		</script>
+		<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	</head>
+	<body style="--markdown-font-size: 18px;">
+        <div class="topan-toolbar">
+            <div class="topan-toolbar-left">
+                <span class="topan-toolbar-lefttext">
+                    <span style="color: rgb(134, 134, 134);" id="writer"></span>
+                    <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                    <span style="font-weight: bold;" id="title"></span>
+                </span>
+            </div>
+            <div class="topan-toolbar-right">
+                <span class="topan-toolbar-righttext">
+                    <span><span style="color: rgb(134, 134, 134);" id="time-year"></span> 年 </span>
+                    <span><span style="color: blue; font-weight: bold;" id="time-month"></span> 月 </span>
+                    <span><span style="color: blue; font-weight: bold;" id="time-day"></span> 日</span>
+                </span>
+            </div>
+            <div class="topan-toolbar-middle">
+                <button class="topan-button-ordinary topan-button-commonly topan-button-header-round-left" id="button1">
+                    <i class="fa fa-step-backward"></i>
+                </button>
+                <button class="topan-button-ordinary topan-button-commonly topan-button-header-round-left" id="button2">
+                    <i class="fa fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="topan-button-ordinary topan-button-commonly topan-button-header-round-left" id="button3">
+                    <i class="fa fa-solid fa-minus"></i>
+                </button>
+                <span class="topan-toolbar-middletext">
+                    <span>&nbsp;&nbsp;</span>
+                    <span id="nowpage" style="color: blue; font-weight: bold;"></span> / <span id="countpage" style="color: rgb(134, 134, 134); font-weight: bold;"></span>
+                    <span>&nbsp;&nbsp;</span>
+                </span>
+                <button class="topan-button-ordinary topan-button-commonly topan-button-header-round-left" id="button4">
+                    <i class="fa fa-solid fa-plus"></i>
+                </button>
+                <button class="topan-button-ordinary topan-button-commonly topan-button-header-round-left" id="button5">
+                    <i class="fa fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="topan-button-ordinary topan-button-commonly topan-button-header-round-left" id="button6">
+                    <i class="fa fa-step-forward"></i>
+                </button>
+            </div>
+        </div>
+        <div class="topan-mainpage">
+            <br>
+            <div class="topan-container markdown" id="main">
+            </div>
+            <br>
+        </div>
+        <div class="topan-loading" id="loading-icon">
+            <i class="fa fa-spin fa-circle-o-notch topan-loading-icon"></i>
+        </div>
+	</body>
+</html>
