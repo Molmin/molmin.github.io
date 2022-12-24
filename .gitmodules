@@ -1,0 +1,3 @@
+[submodule "f/system/ui"]
+	path = f/system/ui
+	url = git@github.com:topan-dev/TopanUI.git
