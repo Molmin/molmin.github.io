@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title id="title">Milmon Home</title>
+	</head>
+	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
+		<div id="main-container">
+			<!-- ---------标题栏--------------- -->
+			<div class="mdui-appbar-fixed mdui-appbar mdui-color-theme mdui-hoverable">
+				<div class="toolbar mdui-toolbar">
+					<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target:'#main-drawer',overlay:true,swipe:true}">
+						<i class="mdui-icon material-icons">menu</i>
+					</span>
+					<span class="mdui-typo-title" style="color: #fff;">Milmon Home</span>
+					<div class="mdui-toolbar-spacer"></div>
+					<a href="/settings" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+						<i class="mdui-icon material-icons" style="color: #fff;">settings</i>
+					</a>
+					<a href="" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+						<i class="mdui-icon material-icons" style="color: #fff;">refresh</i>
+					</a>
+				</div>
+			</div>
+
+			<!-- ---------左侧菜单--------------- -->
+			<div class="mdui-drawer mdui-drawer-close" id="main-drawer" style="background:rgb(52,152,219);color:white">
+				<ul class="mdui-list">
+					<a class="mdui-list-item mdui-ripple" href="/">
+						<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">home</i>
+						<div class="mdui-list-item-content">首页</div>
+					</a>
+					<div class="mdui-divider mdui-m-y-0"></div>
+					<a class="mdui-list-item mdui-ripple" href="/blog">
+						<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">library_books</i>
+						<div class="mdui-list-item-content">博文列表</div>
+					</a>
+					<a class="mdui-list-item mdui-ripple" href="/problems">
+						<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">work</i>
+						<div class="mdui-list-item-content">题目中心</div>
+					</a>
+					<a class="mdui-list-item mdui-ripple" href="/tools">
+						<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">apps</i>
+						<div class="mdui-list-item-content">工具中心</div>
+					</a>
+				</ul>
+			</div>
+
+			<div id="main-page">
+                <br><br><br><br><br><br><br>
+				<div class="mdui-container">
+					<div class="mdui-row">
+						<div class="mdui-col-xs-3">
+							<img src="file/image/head.png" width="200px" height="200px" class="mdui-img-circle mdui-center">
+							<div style="padding-top: 5px; padding-bottom: 0px; text-align: center; letter-spacing: 4px; font-size: 24px;">
+								<h1><strong>Milmon</strong></h1>
+							</div>
+							<div style="padding-top: -5px; text-align: center; letter-spacing: 0.5px;">
+								<p>ZJ MOer &amp; OIer</p>
+							</div>
+						</div>
+						<div class="mdui-col-xs-9">
+							<div class="mdui-container-fluid mdui-shadow-5" style="background: #ffffffbb;">
+								<br>
+								<div class="mdui-tab" mdui-tab>
+									<a href="#action" class="mdui-ripple">动态</a>
+									<a href="#friends" class="mdui-ripple">友链</a>
+									<a href="#comment" class="mdui-ripple">评论</a>
+								</div>
+								<div id="action" class="mdui-p-a-2">
+								</div>
+								<div id="friends" class="mdui-p-a-2">
+								</div>
+								<div id="comment" class="mdui-p-a-2">
+									<div id="gitalk-container"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <br><br><br>
+			</div>
+
+			<!-- -----------联系方式-------------- -->
+
+			<footer style="background:#444;" id="page-footer">
+			</footer>
+		</div>
+		<script src="file/script/particlelines.js"></script>
+	</body>
+</html>
