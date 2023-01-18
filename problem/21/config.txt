@@ -1,4 +1,4 @@
 Colored Jenga;5 s;250 MB;6
 搜索;深度优先搜索;动态规划;状态压缩动态规划;概率动态规划
 CodeForces
-CF242E;LGCF242E
+CF424E;LGCF424E
