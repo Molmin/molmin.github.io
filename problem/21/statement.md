@@ -1,4 +1,4 @@
-## 【题目大意】
+## 题目大意
 
 有一个单人游戏。一开始有一个 $n$ 层的塔，每层有三个位置，初始每层每个位置各放一个红色、绿色或者蓝色的木板。
 
@@ -14,13 +14,13 @@
 
 现在给定一个塔的初始局面，求：在操作者争取掷骰子次数最少的情况下，游戏结束时，掷骰子的期望次数。
 
-## 【题目描述】
+## 题目描述
 
 Cold winter evenings in Tomsk are very boring — nobody wants be on the streets at such a time. Residents of Tomsk while away the time sitting in warm apartments, inventing a lot of different games. One of such games is 'Colored Jenga'.
 
-This game requires wooden blocks of three colors: red, green and blue. A tower of $ n $ levels is made from them. Each level consists of three wooden blocks. The blocks in each level can be of arbitrary colors, but they are always located close and parallel to each other. An example of such a tower is shown in the figure.
+This game requires wooden blocks of three colors: red, green and blue. A tower of $n$ levels is made from them. Each level consists of three wooden blocks. The blocks in each level can be of arbitrary colors, but they are always located close and parallel to each other. An example of such a tower is shown in the figure.
 
-![](https://molmin.github.io/problem/21/1.png)
+![](file://pic1.png)
 
 The game is played by exactly one person. Every minute a player throws a special dice which has six sides. Two sides of the dice are green, two are blue, one is red and one is black. The dice shows each side equiprobably.
 
@@ -36,21 +36,19 @@ Here is a wonderful game invented by the residents of the city of Tomsk. I wonde
 
 Your task is to write a program that determines the expected number of the desired amount of minutes.
 
-## 【输入格式】
+## 输入格式
 
-The first line of the input contains the only integer $ n $ ( $ 2<=n<=6 $ ) — the number of levels in the tower.
+The first line of the input contains the only integer $n$ ( $2\leq n\leq 6$ ) — the number of levels in the tower.
 
-Then $ n $ lines follow, describing the levels of the tower from the bottom to the top (the first line is the top of the tower). Each level is described by three characters, the first and the third of them set the border blocks of the level and the second one is the middle block. The character that describes the block has one of the following values 'R' (a red block), 'G' (a green block) and 'B' (a blue block).
+Then $n$ lines follow, describing the levels of the tower from the bottom to the top (the first line is the top of the tower). Each level is described by three characters, the first and the third of them set the border blocks of the level and the second one is the middle block. The character that describes the block has one of the following values `R` (a red block), `G` (a green block) and `B` (a blue block).
 
-## 【输出格式】
+## 输出格式
 
-In the only line of the output print the sought mathematical expectation value. The answer will be considered correct if its relative or absolute error doesn't exceed $ 10^{-6} $ .
+In the only line of the output print the sought mathematical expectation value. The answer will be considered correct if its relative or absolute error doesn't exceed $10^{-6}$ .
 
-## 【样例输入输出】
+## 样例输入输出
 
-### 样例输入 #1
-
-```
+```input1
 6
 RGB
 GRG
@@ -60,8 +58,6 @@ BRG
 BRB
 ```
 
-### 样例输出 #1
-
-```
+```output1
 17.119213696601992
 ```
