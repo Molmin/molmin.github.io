@@ -1,9 +1,0 @@
-/* MilmonUI: theme */
-
-.mnui-theme-maincolor-brown{
-  --mnui-maincolor: #795548;
-}
-
-.mnui-maincolor{
-  color: var(--mnui-maincolor);
-}
