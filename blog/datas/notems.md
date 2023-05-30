@@ -1,4 +1,4 @@
-```js
+```javascript
 var flag=0;
 
 setInterval(()=>{$('.content').val(`社
