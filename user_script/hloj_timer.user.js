@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         海亮 OIer 专属：计时器破解器
-// @version      1.0.0
+// @version      1.0.1
 // @description  在开始计时之前查看题面！！！
 // @author       Milmon
 // @match        https://oj.hailiangedu.com/*
@@ -43,22 +43,22 @@ async function start_script() {
 
     var html = '';
     for (var lang in content) {
+        var text = content[lang];
+        while (text != text.replace(`](file://`, `](/d/${domainId}/p/${pid}/file/`))
+            text = text.replace(`](file://`, `](/d/${domainId}/p/${pid}/file/`);
         const res = await fetch(`/markdown`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                text: content[lang].replace(`](file://`,
-                    `](/d/${domainId}/p/${pid}/file/`)
-            })
+            body: JSON.stringify({ text })
         });
         html += await res.text();
     }
     if (pdoc.additional_file && pdoc.additional_file.length > 0) {
         html += `<h2>附加文件</h2>`;
         for (var file of pdoc.additional_file)
-            html += `<a href="/d/${domainId}/p/${pid}/file/${file.name}">${file.name}</a>`;
+            html += `<p><a href="/d/${domainId}/p/${pid}/file/${file.name}">${file.name}</a></p>`;
     }
 
     await new window.Hydro.components.InfoDialog({
