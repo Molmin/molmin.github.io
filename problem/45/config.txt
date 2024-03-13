@@ -1,6 +1,0 @@
-比赛（contest）;1 s;256 MB;6
-动态规划;概率动态规划;数学;组合数学;排列组合;组合计数
-本地题/模拟赛题/原创题
-
-https://molmin.github.io/problem/45/sample.zip||sample.zip
-f0c0ee7734033b91d7d229afd8ce43d5
