@@ -44,5 +44,9 @@ function randomstring_reset(){
 		$('randomstringval1').value="4";
 		$('randomstringval2').value="0123456789abcdefghijklmnopqrstuvwxyz";
 	}
+	if(x=="4"){
+		$('randomstringval1').value="64";
+		$('randomstringval2').value="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890123456789";
+	}
 	mdui.updateTextFields();
 }
